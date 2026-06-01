@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Our Pixel Love Story</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main id="gameShell">
+      <section id="startScreen" class="screen active">
+        <div class="titleBlock">
+          <p class="kicker">A cozy memory adventure</p>
+          <h1>Our Pixel Love Story &lt;3</h1>
+          <p>Collect every Memory Heart, fill the scrapbook, and find the girl beneath the glowing heart tree.</p>
+          <div class="customizer" aria-label="Character customizer">
+            <label for="hairColor">Hair</label>
+            <select id="hairColor">
+              <option value="#6a3b2e">Warm Brown</option>
+              <option value="#2f2530">Soft Black</option>
+              <option value="#c78b4f">Honey</option>
+              <option value="#7a5fd1">Dreamy Violet</option>
+            </select>
+            <label for="outfitColor">Outfit</label>
+            <select id="outfitColor">
+              <option value="#6b79c8">Blue Hoodie</option>
+              <option value="#82d7a7">Mint Sweater</option>
+              <option value="#e05288">Rose Hoodie</option>
+              <option value="#5a4e8c">Night Sweater</option>
+            </select>
+          </div>
+          <button id="startButton" class="pixelButton primary">Start Our Adventure &lt;3</button>
+        </div>
+      </section>
+
+      <section id="gameScreen" class="screen">
+        <div id="topBar">
+          <div class="brand">Our Pixel Love Story</div>
+          <div class="stat"><span id="heartCount">0</span>/20 Memory Hearts</div>
+          <div class="stat" id="areaName">Blossom Town</div>
+          <button id="scrapbookButton" class="iconButton" title="Open scrapbook">M</button>
+          <button id="resetButton" class="iconButton resetIcon" title="Reset adventure">R</button>
+        </div>
+
+        <div id="playfield">
+          <canvas id="gameCanvas" width="960" height="540" aria-label="Pixel love story game"></canvas>
+          <div id="toast" aria-live="polite"></div>
+        </div>
+
+        <div id="bottomBar">
+          <div id="dialogueBox">
+            <span id="speaker">Cat</span>
+            <p id="dialogueText">Use WASD or the arrow keys. Press M to open the scrapbook.</p>
+          </div>
+          <div id="musicControls">
+            <button id="musicToggle" class="pixelButton">Play Music</button>
+            <label for="volumeSlider">Volume</label>
+            <input id="volumeSlider" type="range" min="0" max="1" step="0.01" value="0.55">
+            <audio id="musicPlayer" loop preload="auto">
+              <source src="assets/music/our-song.mp3" type="audio/mpeg">
+            </audio>
+          </div>
+        </div>
+      </section>
+
+      <aside id="memoryModal" class="modal" aria-hidden="true">
+        <div class="modalPanel">
+          <button class="closeButton" data-close="memoryModal" aria-label="Close">x</button>
+          <div class="polaroid">
+            <img id="memoryPhoto" alt="Memory photo placeholder">
+          </div>
+          <div>
+            <p class="kicker" id="memoryArea">Memory</p>
+            <h2 id="memoryTitle">A Memory Heart</h2>
+            <p id="memoryMessage"></p>
+            <p id="memoryDate" class="dateLine"></p>
+          </div>
+        </div>
+      </aside>
+
+      <aside id="scrapbookModal" class="modal" aria-hidden="true">
+        <div class="modalPanel scrapbookPanel">
+          <button class="closeButton" data-close="scrapbookModal" aria-label="Close">x</button>
+          <header>
+            <p class="kicker">Unlocked memories</p>
+            <h2>Scrapbook</h2>
+          </header>
+          <div id="scrapbookTabs">
+            <button class="tab active" data-tab="memories">Photos</button>
+            <button class="tab" data-tab="achievements">Achievements</button>
+            <button class="tab" data-tab="notes">Hidden Notes</button>
+          </div>
+          <div id="scrapbookContent"></div>
+        </div>
+      </aside>
+
+      <section id="finaleScreen" class="screen finale">
+        <div class="finaleContent">
+          <p class="kicker">To My Love</p>
+          <h2>Thank you for every laugh, every memory, every late-night conversation, and every moment we've shared.</h2>
+          <p>You are my comfort, my happiness, and my favorite adventure. I love you today, tomorrow, and always.</p>
+          <button id="letterButton" class="pixelButton primary">Open Final Letter</button>
+          <button id="replayButton" class="pixelButton">Replay Ending</button>
+        </div>
+      </section>
+
+      <aside id="letterModal" class="modal" aria-hidden="true">
+        <div class="modalPanel letterPanel">
+          <button class="closeButton" data-close="letterModal" aria-label="Close">x</button>
+          <p class="kicker">Final letter</p>
+          <h2>My Favorite Adventure</h2>
+          <p id="finalLetter"></p>
+          <div id="letterPhotos"></div>
+        </div>
+      </aside>
+    </main>
+
+    <script src="messages.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
